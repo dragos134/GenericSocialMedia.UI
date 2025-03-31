@@ -1,0 +1,13 @@
+#spam-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+#spam-message {
+  width: 60%;
+  margin: 5px 10px 5px 10px;
+}
+.send-button {
+  margin-left: 15px;
+  margin-right: 5px;
+}

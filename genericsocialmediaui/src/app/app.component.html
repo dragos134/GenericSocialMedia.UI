@@ -1,0 +1,113 @@
+<div id="main-page">
+  <mat-toolbar *ngIf="authService.loggedIn()" color="primary">
+    <mat-toolbar-row>
+      <button
+        mat-icon-button
+        (click)="sidenav.toggle()"
+        fxShow="true"
+        fxHide.gt-sm
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div id="logo-container">
+        <a routerLink="/profile">
+          <img id="logo-img" src="../assets/logo3.svg" />
+          <img id="logo-text-img" src="../assets/title.png"
+        /></a>
+      </div>
+      <span class="menu-spacer"> <app-searchbar></app-searchbar></span>
+      <div fxShow="true" fxHide.lt-md>
+        <a routerLink="/profile" mat-button>Perfil</a>
+        <a routerLink="/subscriptions" mat-button>Suscripciones</a>
+        <a routerLink="/feed" mat-button>Publicaciones</a>
+        <a
+          [matBadge]="notificationService.getNoOfMessages()"
+          matBadgeColor="accent"
+          routerLink="/chat"
+          mat-button
+          >Mensajes</a
+        >
+        <!-- <a routerLink="/notifications" mat-button>Notificaciones</a> -->
+        <a routerLink="/support" mat-button>Apoyo</a>
+        <a
+          *ngIf="userService.hasRole('Administrator')"
+          routerLink="/admin"
+          mat-button
+          >Admin</a
+        >
+        <button
+          *ngIf="authService.loggedIn()"
+          (click)="authService.logout()"
+          mat-button
+        >
+          Cerrar sesión
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container style="flex-grow: 1">
+    <mat-sidenav #sidenav>
+      <mat-nav-list style="display: flex; flex-direction: column">
+        <button (click)="sidenav.toggle()" mat-button>Cancelar</button>
+        <a routerLink="/profile" mat-button>Perfil</a>
+        <a routerLink="/subscriptions" mat-button>Suscripciones</a>
+        <a routerLink="/feed" mat-button>Publicaciones</a>
+        <a routerLink="/chat" mat-button>Mensajes</a>
+        <!-- <a routerLink="/notifications" mat-button>Notificaciones</a> -->
+        <a routerLink="/support" mat-button>Apoyo</a>
+        <a
+          *ngIf="userService.hasRole('Administrator')"
+          routerLink="/admin"
+          mat-button
+          >Admin</a
+        >
+        <button
+          *ngIf="authService.loggedIn()"
+          (click)="authService.logout()"
+          mat-button
+        >
+          Cerrar sesión
+        </button>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <div class="comchat-container">
+        <div id="comchat-component-container">
+          <cometchat-messages
+            class="comchat-component"
+            [style]="withMessagesStyle"
+            *ngIf="comchatIsOn && !userService.hasRole('Administrator')"
+            [user]="user"
+          >
+          </cometchat-messages>
+          <cometchat-conversations-with-messages
+            class="comchat-component"
+            [style]="withMessagesStyle"
+            *ngIf="comchatIsOn && userService.hasRole('Administrator')"
+            [isMobileView]="true"
+          >
+          </cometchat-conversations-with-messages>
+        </div>
+        <div class="chat-button-container">
+          <button
+            *ngIf="
+              authService.loggedIn() && authService.canUseComchat() == 'True'
+            "
+            (click)="toggleComchat()"
+            mat-mini-fab
+            class="comchat-button"
+          >
+            <mat-icon fontIcon="chat_bubble_outline"> </mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="ui-segment">
+        <router-outlet></router-outlet>
+
+        <cometchat-incoming-call
+          id="incoming-call-component"
+        ></cometchat-incoming-call></div
+    ></mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

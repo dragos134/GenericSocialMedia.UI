@@ -1,0 +1,43 @@
+#add-text-dialog {
+  width: 60vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#add-text-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+#text-container {
+  flex-grow: 1;
+  margin: 10px;
+  height: 100%;
+}
+
+.desc-textarea {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  font-family: "Kalam", cursive;
+  font-size: 24px;
+  resize: none;
+}
+
+#button-container {
+  flex-grow: 0;
+  margin: 10px;
+}
+#post-button {
+  width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+  #add-text-dialog {
+    width: 80vw;
+    height: 80vh;
+  }
+}

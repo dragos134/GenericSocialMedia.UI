@@ -1,0 +1,26 @@
+<div id="feed-page">
+  <div class="post-container" *ngFor="let post of posts">
+    <mat-card class="feed-container">
+      <mat-card-content>
+        <div class="post-header-container">
+          <img
+            class="user-profile-photo"
+            [src]="getBlobUrlFromId(post.profilePictureId)"
+          />
+          <a
+            class="username-link"
+            [routerLink]="getProfileRoute(post.username)"
+            >{{ post.username }}</a
+          >
+        </div>
+        <p
+          [innerHTML]="post.description.replaceAll('\\r\\n', '\<br\>')"
+          class="post-description"
+        ></p>
+        <div *ngIf="post.imageId != null" class="post-photo-container">
+          <img class="post-photo" [src]="getBlobUrlFromId(post.imageId)" />
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

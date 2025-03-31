@@ -1,0 +1,27 @@
+<div id="send-message-container">
+  <div id="send-message-input-container">
+    <textarea
+      placeholder="Escribe un mensaje..."
+      id="send-message-input"
+      #messageInput
+    ></textarea>
+  </div>
+  <div id="buttons-container">
+    <button
+      (click)="onNoClick()"
+      mat-flat-button
+      color="warn"
+      class="dialog-button"
+    >
+      Cancelar
+    </button>
+    <button
+      (click)="sendMessage(messageInput.value)"
+      mat-flat-button
+      color="primary"
+      class="dialog-button"
+    >
+      Envía
+    </button>
+  </div>
+</div>

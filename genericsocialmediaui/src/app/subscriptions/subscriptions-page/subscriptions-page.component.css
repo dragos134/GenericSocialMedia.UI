@@ -1,0 +1,78 @@
+#subscriptions-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-image: url(/assets/bg3.png);
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-size: 50vw 50vh;
+  padding-top: 25px;
+}
+
+#subscriptions-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.subscription-container-even {
+  flex-basis: 20%;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 55vh;
+}
+
+.subscription-container-odd {
+  flex-basis: 20%;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 50px;
+  height: 55vh;
+}
+
+.sub-form {
+  display: flex;
+  justify-content: center;
+}
+
+.sub-title {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px;
+  background-color: #4a1826;
+  color: white;
+  font-family: "Kalam", cursive;
+}
+
+mat-card-content {
+  background-image: url(/assets/card-bg7.png);
+  background-size: 100%;
+  padding-top: 10px;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.price-p {
+  font-size: 10px;
+  color: rgb(131, 131, 131);
+}
+
+@media only screen and (max-width: 800px) {
+  #subscriptions-container {
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+  }
+
+  .subscription-container {
+    flex-basis: 90%;
+  }
+
+  #subscriptions-page {
+    background-size: 100%;
+  }
+}

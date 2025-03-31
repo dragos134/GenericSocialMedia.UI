@@ -1,0 +1,16 @@
+#table-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#filter-container {
+  width: 40%;
+}
+
+#filter-form-field {
+  width: 100%;
+}
+
+#filter-input {
+  width: 100%;
+}

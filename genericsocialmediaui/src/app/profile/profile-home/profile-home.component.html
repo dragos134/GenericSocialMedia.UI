@@ -1,0 +1,70 @@
+<div id="profile-page">
+  <div id="profile-container">
+    <mat-card>
+      <mat-card-content id="profile-card">
+        <div id="profile-picture-container">
+          <p class="user-info-item">
+            <b>{{ user.username }}</b>
+          </p>
+          <img
+            (click)="profilePhotoInput.click()"
+            id="profile-picture"
+            [src]="photoSrc"
+          />
+          <input
+            #profilePhotoInput
+            hidden="true"
+            type="file"
+            onclick="this.value=null"
+            (change)="profilePhotoInputChange($event)"
+            accept="image/x-png,image/gif,image/jpeg"
+          />
+
+          <p id="subscription-text">
+            Suscripción: <b>{{ user.subscription }}</b>
+          </p>
+        </div>
+        <div id="profile-utility-container">
+          <div id="utility-buttons-container">
+            <button
+              (click)="openAddPhotoDialog()"
+              mat-fab
+              color="primary"
+              class="utility-button"
+            >
+              <mat-icon fontIcon="camera_alt"></mat-icon>
+            </button>
+            <button
+              (click)="openAddTextDialog()"
+              mat-fab
+              color="primary lighter"
+              class="utility-button"
+            >
+              <mat-icon fontIcon="brush"></mat-icon>
+            </button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <mat-divider></mat-divider>
+  <div id="posts-container">
+    <div class="post-container" *ngFor="let post of posts">
+      <mat-card class="post-card">
+        <mat-card-content class="post-card-content">
+          <p
+            [innerHTML]="post.description.replaceAll('\\r\\n', '\<br\>')"
+            class="post-description"
+          ></p>
+          <div *ngIf="post.imageId != null" class="post-image-container">
+            <img class="post-image" [src]="getPhotoUrl(post.imageId)" />
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div id="footer">
+    <app-footer></app-footer>
+  </div>
+</div>

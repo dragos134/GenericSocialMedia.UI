@@ -1,0 +1,128 @@
+<div id="chat-page" class="container">
+  <div
+    id="chat-container"
+    class="slide-container"
+    [ngClass]="{ 'slide-left': showChatUsers, 'slide-right': !showChatUsers }"
+  >
+    <div (scroll)="onChatUsersScroll($event)" id="chat-users-container">
+      <div *ngFor="let chatUser of chatUsers">
+        <div
+          [ngClass]="{
+            'has-new-messages': chatUser.noOfUnread > 0,
+            'chat-user-container': true
+          }"
+          (click)="onChangeChat(chatUser)"
+        >
+          <img class="user-photo" [src]="getPhotoUrl(chatUser.photoId)" />
+          <div
+            [ngClass]="{
+              'chat-username-container': true
+            }"
+            [matBadge]="chatUser.noOfUnread"
+            matBadgeColor="accent"
+          >
+            <p class="chat-username-text">
+              <b>{{ chatUser.username }}</b>
+            </p>
+            <div
+              [ngClass]="{
+                'user-online': chatUser.isOnline,
+                'user-offline': !chatUser.isOnline
+              }"
+            ></div>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <div id="messages-container">
+      <div id="messages-header">
+        <button
+          mat-mini-fab
+          matSuffix
+          color="primary"
+          class="back-button"
+          (click)="toggleChat()"
+        >
+          <mat-icon fontIcon="arrow_back"></mat-icon>
+        </button>
+        <p id="messages-header-name">
+          {{ this.selectedUser.username }} -
+          {{ this.selectedUser.subscription }}
+        </p>
+      </div>
+      <mat-divider></mat-divider>
+      <div #chatMessages id="chat-messages-container">
+        <div
+          class="message-container"
+          [ngClass]="
+            message.senderUsername == this.selectedUser.username
+              ? 'received-message'
+              : 'sent-message'
+          "
+          *ngFor="let message of messages"
+        >
+          <div class="complete-message-container">
+            <div style="display: flex">
+              <button
+                class="edit-message-button"
+                *ngIf="
+                  message.senderUsername != this.selectedUser.username &&
+                  userService.hasRole('Administrator')
+                "
+                mat-icon-button
+                (click)="openEditMessageDialog(message.id, message.content)"
+              >
+                <mat-icon style="margin: auto">edit</mat-icon>
+              </button>
+              <div
+                [ngClass]="{
+                  'received-message-content-container':
+                    message.senderUsername == this.selectedUser.username,
+                  'sent-message-content-container':
+                    message.senderUsername != this.selectedUser.username,
+                  'message-content-container': true
+                }"
+              >
+                <p class="message-content">{{ message.content }}</p>
+              </div>
+            </div>
+            <div class="message-time-container">
+              <p class="message-time">
+                {{ message.sentAt | date: "HH:mm" }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="messages-footer">
+        <mat-form-field id="send-message-container">
+          <input
+            #sendMessageInput
+            matInput
+            (keyup.enter)="
+              sendMessage(sendMessageInput.value); sendMessageInput.value = ''
+            "
+            placeholder="Escribe un mensaje..."
+          />
+          <button
+            *ngIf="sendMessageInput.value != ''"
+            (click)="
+              sendMessage(sendMessageInput.value); sendMessageInput.value = ''
+            "
+            mat-mini-fab
+            matSuffix
+            color="primary"
+            class="send-button"
+          >
+            <mat-icon fontIcon="send"></mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <app-footer></app-footer>
+  </div>
+</div>

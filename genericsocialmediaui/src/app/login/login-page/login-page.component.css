@@ -1,0 +1,146 @@
+#login-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+#content-background {
+  min-height: 650px;
+  background-color: white;
+  display: flex;
+  width: 70%;
+  margin: auto;
+  position: absolute;
+  top: -450px;
+}
+
+#content-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #4a1826;
+  margin: 15px;
+}
+
+.form-container {
+  width: 100%;
+}
+
+app-register-form {
+  width: 100%;
+}
+
+app-login-form {
+  margin: auto;
+}
+
+#title-container {
+  background-image: url(../../../assets/poza2.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+  width: 100%;
+  color: rgb(170, 170, 170);
+  display: flex;
+  justify-content: center;
+}
+
+#title-container p {
+  font-size: 120px;
+  margin-top: 150px;
+  font-family: "Kalam", cursive;
+}
+
+#description-container {
+  background: linear-gradient(to right, #3a111c, #4a1826);
+  flex-basis: 50%;
+  padding: 20px;
+  text-align: center;
+}
+
+#description-text {
+  color: white;
+  font-size: 18px;
+  line-height: 1.5;
+  font-family: "Kalam", cursive;
+}
+
+#auth-container {
+  background: linear-gradient(to right, #431522, #653b47);
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: row;
+}
+#big-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 30vh;
+}
+
+.change-button {
+  text-decoration: underline;
+  font-family: "Kalam", cursive;
+  color: #a58c93;
+  margin: 4px;
+}
+
+.change-button:hover {
+  color: #e99cb2;
+  cursor: pointer;
+}
+
+.change-auth-container {
+  color: white;
+  font-size: 24px;
+  font-family: "Kalam", cursive;
+  margin: auto;
+}
+
+#footer {
+  margin: 16px 0px;
+}
+
+#stripe-container {
+  display: flex;
+  justify-content: center;
+}
+
+#stripe-image {
+  width: 30%;
+}
+
+@media only screen and (max-width: 1000px) {
+  #title-container p {
+    font-size: 40px;
+    margin-top: 50px;
+  }
+
+  #content-background {
+    width: 100%;
+  }
+
+  #content-container {
+    flex-direction: column;
+    margin: 5px;
+  }
+
+  #big-content {
+    height: 90vh;
+  }
+
+  #stripe-image {
+    width: 80%;
+  }
+}

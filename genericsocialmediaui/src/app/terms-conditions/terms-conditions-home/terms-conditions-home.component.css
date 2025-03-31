@@ -1,0 +1,21 @@
+#terms-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  background-color: #ffe2df;
+  padding-bottom: 80px;
+}
+
+#terms-container {
+  width: 60%;
+}
+
+h1 {
+  text-align: center;
+}
+
+#back-button-container {
+  position: fixed;
+  bottom: 10%;
+  left: 10%;
+}

@@ -1,0 +1,32 @@
+#edit-message-dialog {
+  width: 40vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#edit-message-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+#edit-message-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+#edit-message-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+}
+
+#edit-textarea {
+  min-width: 400px;
+  min-height: 200px;
+  margin-bottom: 30px;
+}

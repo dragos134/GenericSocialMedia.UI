@@ -1,0 +1,23 @@
+<div id="add-text-dialog">
+  <div id="add-text-header-container">
+    <h3>Add text</h3>
+    <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-divider></mat-divider>
+  <div id="text-container">
+    <textarea rows="4" class="desc-textarea" #postDescription></textarea>
+  </div>
+
+  <div id="button-container">
+    <button
+      (click)="createPost(postDescription.value)"
+      id="post-button"
+      mat-flat-button
+      color="primary"
+    >
+      Publicar
+    </button>
+  </div>
+</div>

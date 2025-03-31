@@ -1,0 +1,140 @@
+<form [formGroup]="registerForm" (submit)="register()" id="register-form">
+  <mat-grid-list
+    [cols]="cols"
+    rowHeight="100px"
+    (window:resize)="onResize($event)"
+  >
+    <mat-grid-tile colspan="1" rowspan="1"
+      ><mat-form-field class="grid-content">
+        <mat-label>Nombre de pila</mat-label>
+        <input
+          formControlName="firstName"
+          name="firstName"
+          matInput
+          type="text"
+        /> </mat-form-field
+    ></mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1"
+      ><mat-form-field class="grid-content">
+        <mat-label>Apellido</mat-label>
+        <input
+          formControlName="lastName"
+          name="lastName"
+          matInput
+          type="text"
+        /> </mat-form-field
+    ></mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-form-field class="grid-content">
+        <mat-label>Nombre de usario</mat-label>
+        <input
+          formControlName="username"
+          name="username"
+          matInput
+          type="text"
+        />
+        <mat-error
+          *ngIf="registerForm.get('username')?.errors?.['uniqueUsername']"
+        >
+          <strong>Este nombre de usuario ya existe</strong>
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('username')?.errors?.['required']">
+          <strong>Requis</strong>
+        </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1"
+      ><mat-form-field class="grid-content">
+        <mat-label>Correo electrónico</mat-label>
+        <input
+          formControlName="email"
+          name="email"
+          matInput
+          type="email"
+        /> </mat-form-field
+    ></mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1"
+      ><mat-form-field class="grid-content">
+        <mat-label>Ciudad</mat-label>
+        <input
+          formControlName="city"
+          name="city"
+          matInput
+          type="text"
+        /> </mat-form-field
+    ></mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1"
+      ><mat-form-field class="grid-content">
+        <mat-label>Género</mat-label>
+        <mat-select formControlName="gender" name="gender" value="1">
+          <mat-option value="male">Mâle</mat-option>
+          <mat-option value="female">Femelle</mat-option>
+        </mat-select>
+      </mat-form-field></mat-grid-tile
+    >
+    <mat-grid-tile colspan="1" rowspan="1"
+      ><mat-form-field class="grid-content">
+        <mat-label>Contraseña</mat-label>
+        <input
+          formControlName="password"
+          name="password"
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hidePassword = !hidePassword"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword"
+        >
+          <mat-icon>{{
+            hidePassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </mat-form-field></mat-grid-tile
+    >
+    <mat-grid-tile colspan="1" rowspan="1"
+      ><mat-form-field class="grid-content">
+        <mat-label>Confirmar Contraseña</mat-label>
+        <input
+          formControlName="confirmPassword"
+          name="confirmPassword"
+          matInput
+          [type]="hideConfirmPassword ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hideConfirmPassword = !hideConfirmPassword"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hideConfirmPassword"
+        >
+          <mat-icon>{{
+            hideConfirmPassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </mat-form-field></mat-grid-tile
+    >
+  </mat-grid-list>
+
+  <section>
+    <mat-label
+      ><a routerLink="/terms-conditions" mat-button
+        >Terms y condiciones</a
+      ></mat-label
+    >
+    <mat-checkbox
+      formControlName="tcAccepted"
+      name="termsConditions"
+    ></mat-checkbox>
+  </section>
+
+  <button type="submit" mat-flat-button [disabled]="!registerForm.valid">
+    Registro
+  </button>
+</form>

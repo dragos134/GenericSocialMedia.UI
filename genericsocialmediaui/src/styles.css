@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Kalam", cursive;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4a1826; /* Change the color to match your design */
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Change the color to match your design */
+}
+
+mat-card-content {
+  background-image: url(/assets/card-bg7.png);
+  background-size: 100%;
+}
+
+.transparent .mat-mdc-dialog-container {
+  --mdc-dialog-container-color: rgba(0, 0, 0, 0);
+}
+
+.transparent .mat-mdc-dialog-surface {
+  box-shadow: none !important;
+}
+
+/* .dialog-responsive {
+  max-width: 700px;
+  width: 60vw;
+} */

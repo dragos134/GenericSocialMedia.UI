@@ -1,0 +1,41 @@
+<form [formGroup]="loginForm" (submit)="login()" id="login-form">
+  <mat-form-field>
+    <mat-label>Correo electrónico</mat-label>
+    <input formControlName="email" name="email" matInput type="email" />
+
+    <mat-error
+      *ngIf="
+        loginForm.controls.email.hasError('email') &&
+        !loginForm.controls.email.hasError('required')
+      "
+      >Dirección de correo electrónico no válida</mat-error
+    >
+    <mat-error *ngIf="loginForm.controls.email.hasError('required')"
+      ><strong>Requerido</strong></mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Contraseña</mat-label>
+    <input
+      formControlName="password"
+      name="password"
+      matInput
+      type="password"
+    />
+    <mat-error *ngIf="loginForm.controls.password.hasError('required')"
+      ><strong>Requerido</strong></mat-error
+    >
+  </mat-form-field>
+
+  <button
+    type="submit"
+    mat-raised-button
+    [disabled]="buttonDisabled || !loginForm.valid"
+    color="accent"
+  >
+    Acceso
+  </button>
+
+  <mat-spinner *ngIf="buttonDisabled" color="accent"></mat-spinner>
+</form>

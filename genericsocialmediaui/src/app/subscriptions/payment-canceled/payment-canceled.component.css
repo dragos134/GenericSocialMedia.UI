@@ -1,0 +1,11 @@
+#cancel-page {
+  background-color: #ffe2df;
+  min-height: 100%;
+  font-size: large;
+  display: flex;
+  justify-content: center;
+}
+
+#text-container {
+  margin: auto;
+}

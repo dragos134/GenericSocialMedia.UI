@@ -1,0 +1,25 @@
+#edit-user-dialog {
+  width: 60vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#edit-user-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+#edit-user-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+#edit-user-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+}

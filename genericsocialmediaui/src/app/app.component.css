@@ -1,0 +1,89 @@
+.ui-segment {
+  height: 100%;
+}
+
+.menu-spacer {
+  flex: 1 1 auto;
+  justify-content: center;
+  position: relative;
+}
+
+app-searchbar {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+  top: -27px;
+  left: 20%;
+}
+
+mat-sidenav-content {
+  overflow: auto;
+  background-color: #653b47;
+  margin: auto;
+}
+#logo-container {
+  height: 100%;
+}
+#logo-img {
+  height: 90%;
+  margin: 5px;
+}
+
+#logo-text-img {
+  height: 100%;
+}
+
+#main-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#comchat-component-container {
+  position: relative;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.comchat-component {
+  width: 30vw;
+  height: 60vh;
+}
+
+#incoming-call-component {
+  position: fixed;
+  top: 40vh;
+  right: 40vw;
+  z-index: 1001;
+}
+
+.comchat-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  right: 5%;
+  bottom: 5%;
+  z-index: 1000;
+}
+
+@media only screen and (max-width: 800px) {
+  #logo-text-img {
+    display: none;
+  }
+
+  .comchat-component {
+    width: 90vw;
+    height: 70vh;
+  }
+
+  app-searchbar {
+    width: 60%;
+  }
+}

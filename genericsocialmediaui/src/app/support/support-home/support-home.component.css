@@ -1,0 +1,50 @@
+#support-page {
+  display: flex;
+  justify-content: space-evenly;
+  background-image: url(/assets/bg3.png);
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-size: 50vw 50vh;
+  height: 100%;
+  padding-bottom: 50px;
+}
+
+#presentation-container {
+  margin-top: 18%;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  font-family: "Kalam", cursive;
+  flex-basis: 30%;
+}
+
+#contact-form-container {
+  flex-basis: 30%;
+  margin-top: 10%;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+#send-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 60%;
+  justify-content: center;
+}
+
+#sent-message-container {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  #support-page {
+    flex-direction: column;
+  }
+
+  #send-form {
+    width: 90%;
+  }
+}

@@ -1,0 +1,69 @@
+#add-photo-dialog {
+  width: 60vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#add-photo-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+#description-input {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  width: 90%;
+  padding: 8px;
+}
+
+#add-post-photo-container {
+  border: solid;
+  border-radius: 5px;
+  border-color: rgb(88, 88, 88);
+  border-width: 1px;
+
+  display: flex;
+  width: 90%;
+  justify-content: center;
+
+  cursor: pointer;
+  flex-grow: 1;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-photo {
+  width: 50%;
+  margin: auto;
+}
+
+.add-photo-text {
+  font-size: 30px;
+  margin: auto;
+}
+
+#add-post-photo-container:hover {
+  background-color: rgb(211, 211, 211);
+}
+
+#post-button-container {
+  flex-grow: 0;
+  margin: 10px;
+}
+#post-button {
+  width: 100%;
+}
+@media only screen and (max-width: 800px) {
+  #add-photo-dialog {
+    width: 80vw;
+    height: 80vh;
+  }
+}

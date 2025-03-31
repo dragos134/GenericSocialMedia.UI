@@ -1,0 +1,28 @@
+<div id="search-container">
+  <mat-form-field id="search-input-field">
+    <input
+      #searchInput
+      matInput
+      (input)="onSearchInput(searchInput.value)"
+      placeholder="Buscar"
+    />
+  </mat-form-field>
+  <mat-list id="search-content" *ngIf="isSearching">
+    <div id="search-item-container" *ngFor="let user of result">
+      <mat-list-item
+        ><div
+          (click)="onSearchItemClick(user.username)"
+          class="search-item-content"
+        >
+          <img
+            class="search-photo"
+            [src]="getUserPhotoUrl(user.photoId)"
+            *ngIf="user.photoId != null"
+          />
+          <p class="search-username">{{ user.fullname }}</p>
+        </div></mat-list-item
+      >
+      <mat-divider></mat-divider>
+    </div>
+  </mat-list>
+</div>

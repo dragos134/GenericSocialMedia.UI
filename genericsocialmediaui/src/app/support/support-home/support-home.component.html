@@ -1,0 +1,58 @@
+<div id="support-page">
+  <div id="presentation-container">
+    <h1>Contacta con nosotros</h1>
+    <p style="font-size: medium">
+      ¿Tienes algun problema? ¿Quieres ponerte en contacto con nosotros? No
+      dudes en enviarnos un mensaje llenando el formulario.Te responderemos tan
+      pronto como podamos.
+    </p>
+    <p style="font-size: medium">
+      ¿Quieres contactarnos directamente? ¡Siempre puedes escribirnos a esta
+      dirección de correo electrónico!
+    </p>
+    <p style="font-size: medium">support-cumplir-deseos&#64;proton.me</p>
+  </div>
+  <div id="contact-form-container">
+    <mat-card>
+      <mat-card-content style="height: 35vh; display: flex">
+        <div id="sent-message-container" *ngIf="isMessageSent">
+          <p style="margin: auto; font-size: medium">
+            ¡Gracias! Nos pondremos en contacto contigo en el menor tiempo.
+          </p>
+        </div>
+        <form
+          *ngIf="!isMessageSent"
+          [formGroup]="supportForm"
+          (submit)="submitTicket()"
+          id="send-form"
+        >
+          <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input
+              formControlName="fullName"
+              name="fullName"
+              matInput
+              type="text"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Correo electrónico</mat-label>
+            <input formControlName="email" name="email" matInput type="email" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Mensaje</mat-label>
+            <input
+              formControlName="message"
+              name="message"
+              matInput
+              type="text"
+            />
+          </mat-form-field>
+          <button mat-flat-button color="primary" type="submit">
+            Entregar
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

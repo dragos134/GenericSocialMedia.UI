@@ -1,0 +1,134 @@
+<div id="subscriptions-page">
+  <div id="subscriptions-container">
+    <mat-card class="subscription-container-even">
+      <mat-card-title class="sub-title">Pequeño - 60 EUR / Mes</mat-card-title>
+      <mat-card-content>
+        <p>1000 Mensajes</p>
+        <p>Enviando fotos y mensajes vocales (20)</p>
+        <p>Asistencia Técnica</p>
+        <p><s>Videollamadas Ilimitadas</s></p>
+        <p><s>Llamadas de Audio Ilimitadas</s></p>
+        <p><s>Puedes crear grupos</s></p>
+        <p><s>interacciones ilimitadas con miembros exclusivos</s></p>
+        <p class="price-p">Validez: 1 mes</p>
+        <form [action]="getStripeLink()" method="POST" class="sub-form">
+          <input name="email" [value]="authService.getEmail()" type="hidden" />
+          <input
+            name="StripeSubscriptionId"
+            *ngIf="subscriptionsData"
+            [value]="subscriptionsData[1].stripeId"
+            type="hidden"
+          />
+          <button
+            mat-flat-button
+            color="primary"
+            type="submit"
+            class="checkout-button"
+          >
+            Comprar
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="subscription-container-odd">
+      <mat-card-title class="sub-title">Hot - 39 EUR / Mes</mat-card-title>
+      <mat-card-content>
+        <p>Mensajes Ilimitados</p>
+        <p>Enviando fotos y mensajes vocales (150 por mes)</p>
+        <p>Asistencia Técnica</p>
+        <p>Videollamadas (120 minutos)</p>
+        <p>Llamadas de Audio (120 minutos)</p>
+        <p>Puedes crear grupos</p>
+        <p>
+          <s>Interacciones ilimitadas con miembros exclusivos</s>
+        </p>
+        <p class="price-p">Validez: 4 meses - 155 EUR</p>
+        <form [action]="getStripeLink()" method="POST" class="sub-form">
+          <input name="email" [value]="authService.getEmail()" type="hidden" />
+          <input
+            name="StripeSubscriptionId"
+            *ngIf="subscriptionsData"
+            [value]="subscriptionsData[2].stripeId"
+            type="hidden"
+          />
+          <button
+            mat-flat-button
+            color="primary"
+            type="submit"
+            class="checkout-button"
+          >
+            Comprar
+          </button>
+        </form></mat-card-content
+      >
+    </mat-card>
+
+    <mat-card class="subscription-container-even">
+      <mat-card-title class="sub-title">Pasión - 35 EUR / Mes</mat-card-title>
+      <mat-card-content>
+        <p>Mensajes Ilimitados</p>
+        <p>Enviando fotos y mensajes vocales (500 por mes)</p>
+        <p>Asistencia Técnica 24/7</p>
+        <p>Videollamadas (600 minutos)</p>
+        <p>Llamadas de Audio (600 minutos)</p>
+        <p>Puedes crear grupos</p>
+        <p>
+          <s>Interacciones ilimitadas con miembros exclusivos</s>
+        </p>
+        <p class="price-p">Validez: 6 meses - 210 EUR</p>
+        <form [action]="getStripeLink()" method="POST" class="sub-form">
+          <input name="email" [value]="authService.getEmail()" type="hidden" />
+          <input
+            name="StripeSubscriptionId"
+            *ngIf="subscriptionsData"
+            [value]="subscriptionsData[3].stripeId"
+            type="hidden"
+          />
+          <button
+            mat-flat-button
+            color="primary"
+            type="submit"
+            class="checkout-button"
+          >
+            Comprar
+          </button>
+        </form></mat-card-content
+      >
+    </mat-card>
+
+    <mat-card class="subscription-container-odd">
+      <mat-card-title class="sub-title">Supremo - 25 EUR / Mes</mat-card-title>
+      <mat-card-content>
+        <p>Mensajes Ilimitados</p>
+        <p>Enviando fotos y mensajes vocales (Ilimitados)</p>
+        <p>Asistencia Técnica 24/7</p>
+        <p>Videollamadas Ilimitadas</p>
+        <p>Llamadas de Audio Ilimitadas</p>
+        <p>Interacciones ilimitadas con miembros exclusivos</p>
+        <p>Puedes crear grupos</p>
+        <p class="price-p">Validez: 12 meses - 299 EUR</p>
+        <form [action]="getStripeLink()" method="POST" class="sub-form">
+          <input name="email" [value]="authService.getEmail()" type="hidden" />
+          <input
+            name="StripeSubscriptionId"
+            *ngIf="subscriptionsData"
+            [value]="subscriptionsData[4].stripeId"
+            type="hidden"
+          />
+          <button
+            mat-flat-button
+            color="primary"
+            type="submit"
+            class="checkout-button"
+          >
+            Comprar
+          </button>
+        </form></mat-card-content
+      >
+    </mat-card>
+  </div>
+  <div id="footer">
+    <app-footer></app-footer>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div id="delete-user-dialog">
+  <div id="delete-user-header-container">
+    <h3>Delete user</h3>
+    <button
+      mat-icon-button
+      aria-label="close dialog"
+      [mat-dialog-close]="false"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div id="delete-text-container">
+    <p>Are you sure you want to delete this user?</p>
+  </div>
+  <div id="buttons-container">
+    <button (click)="onNoClick(false)" mat-raised-button color="warning">
+      Cancel
+    </button>
+
+    <button (click)="softDeleteUser()" mat-raised-button color="primary">
+      Soft Delete
+    </button>
+
+    <button (click)="hardDeleteUser()" mat-raised-button color="primary">
+      Hard Delete
+    </button>
+  </div>
+</div>

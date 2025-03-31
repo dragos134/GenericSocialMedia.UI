@@ -1,0 +1,46 @@
+<div id="profile-page">
+  <div id="profile-container">
+    <mat-card>
+      <mat-card-content id="profile-card">
+        <div id="profile-picture-container">
+          <p class="user-info-item">
+            <b>{{ user.username }}</b>
+          </p>
+          <img id="profile-picture" [src]="profilePhotoUrl" />
+
+          <p id="subscription-text">
+            Suscripción: <b>{{ user.subscription }}</b>
+          </p>
+        </div>
+        <div
+          id="utility-buttons-container"
+          *ngIf="_authService.getGender() != user.gender"
+        >
+          <button
+            (click)="openSendMessageDialog()"
+            mat-fab
+            color="primary"
+            class="utility-button"
+          >
+            <mat-icon fontIcon="message"></mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div id="posts-container">
+    <div class="post-container" *ngFor="let post of posts">
+      <mat-card class="post-card">
+        <mat-card-content class="post-card-content">
+          <p
+            [innerHTML]="post.description.replaceAll('\\r\\n', '\<br\>')"
+            class="post-description"
+          ></p>
+          <div *ngIf="post.imageId != null" class="post-image-container">
+            <img class="post-image" [src]="getPhotoUrl(post.imageId)" />
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

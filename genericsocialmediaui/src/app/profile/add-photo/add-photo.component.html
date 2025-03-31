@@ -1,0 +1,33 @@
+<div id="add-photo-dialog">
+  <div id="add-photo-header-container">
+    <h3>Add photo</h3>
+    <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-divider></mat-divider>
+  <input maxlength="35" id="description-input" matInput #postDescription />
+  <div (click)="postPhotoInput.click()" id="add-post-photo-container">
+    <input
+      #postPhotoInput
+      hidden="true"
+      type="file"
+      onclick="this.value=null"
+      (change)="postPhotoInputChange($event)"
+      accept="image/x-png,image/gif,image/jpeg"
+    />
+    <p *ngIf="!photoSrc" class="add-photo-text">Add a photo</p>
+    <img class="post-photo" *ngIf="photoSrc" [src]="photoSrc" />
+  </div>
+
+  <div id="post-button-container">
+    <button
+      (click)="createPost(postDescription.value)"
+      id="post-button"
+      mat-flat-button
+      color="primary"
+    >
+      Publicar
+    </button>
+  </div>
+</div>

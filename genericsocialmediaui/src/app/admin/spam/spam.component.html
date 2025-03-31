@@ -1,0 +1,24 @@
+<div id="spam-container">
+  <mat-form-field>
+    <input #idsInput matInput />
+    <mat-label>Id-uri</mat-label>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Mesaj</mat-label>
+    <textarea #messageInput id="spam-message" matInput></textarea
+    ><button
+      class="send-button"
+      (click)="
+        sendSpamMessage(idsInput.value, messageInput.value);
+        messageInput.value = ''
+      "
+      mat-mini-fab
+      matSuffix
+      color="primary"
+      class="send-button"
+    >
+      <mat-icon fontIcon="send"></mat-icon>
+    </button>
+  </mat-form-field>
+</div>

@@ -1,0 +1,57 @@
+<div id="login-page-container">
+  <div id="title-container">
+    <p>Cumplir deseos</p>
+  </div>
+  <div id="big-content">
+    <div id="content-background">
+      <div id="content-container">
+        <div id="description-container">
+          <p id="description-text">
+            Nos alegramos de conocerle! Le prometemos que, sea cual sea su
+            interés y propósito, haremos todo lo posible para satisfacer todos
+            sus deseos, ya sean de intimidad, discreción, pasión o quizás
+            simplemente un entorno agradable para mantener conversaciones e
+            intercambiar experiencias con otras personas. Podemos garantizarle
+            que su intento será un éxito, con nuestra ayuda, y no lo decimos por
+            falta de modestia, sino por el simple hecho de que nosotros, el
+            equipo que está detrás del sitio, somos personas, como usted, con
+            las mismas esperanzas y deseos, por lo que comprendemos
+            perfectamente sus necesidades. Nuestro consejo es que seas tú mismo,
+            y te dejes guiar por tus propios instintos y sentimientos
+            interiores, y te permitas ser libre. Le deseamos una agradable
+            experiencia con nosotros.
+          </p>
+        </div>
+        <div id="auth-container">
+          <div *ngIf="isLogin" id="login-form-container" class="form-container">
+            <app-login-form></app-login-form>
+            <span class="change-auth-container"
+              >¿No tienes una cuenta?
+              <p (click)="isLogin = false" class="change-button">
+                Regístrate ahora
+              </p></span
+            >
+          </div>
+          <div
+            *ngIf="!isLogin"
+            id="register-form-container"
+            class="form-container"
+          >
+            <app-register-form></app-register-form>
+            <span class="change-auth-container"
+              >¿Ya tienes una cuenta?
+              <p (click)="isLogin = true" class="change-button">Acceso</p></span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div id="stripe-container">
+      <img id="stripe-image" src="/assets/stripe-badge-white.png" />
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

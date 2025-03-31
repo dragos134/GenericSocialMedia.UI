@@ -1,0 +1,24 @@
+mat-grid-list {
+  width: 100%;
+}
+
+#register-form-container {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+button {
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+  .grid-content {
+    width: 90%;
+  }
+}

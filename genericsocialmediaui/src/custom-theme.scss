@@ -1,0 +1,75 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
+$custom-primary-palette: (
+  50: #ffe2df,
+  100: #f0c2c3,
+  200: #d29ea1,
+  300: #b57a7e,
+  400: #9f5f64,
+  500: #8a444b,
+  600: #7d3c44,
+  700: #6c3039,
+  800: #5b2531,
+  900: #4a1826,
+
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$custom-accent-palette: (
+  50: #f5e3dd,
+  100: #eabfa4,
+  200: #da976b,
+  300: #c9722f,
+  400: #bd5900,
+  500: #b14200,
+  600: #a93d00,
+  700: #9e3700,
+  800: #922f00,
+  900: #7d2200,
+
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
+);
+
+$my-primary: mat.define-palette($custom-primary-palette, 900, 400, 200);
+$my-accent: mat.define-palette($custom-accent-palette, 50, 200, 500);
+
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
+// Emit theme-dependent styles for common features used across multiple components.
+@include mat.core-theme($my-theme);
+
+@include mat.all-component-themes($my-theme);

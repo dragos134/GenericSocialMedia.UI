@@ -1,0 +1,41 @@
+.mat-elevation-z8 {
+  margin-top: 20px;
+}
+#table-container {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+#table-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#add-user-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
+}
+
+#user-ids-container {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+}
+#ids-label {
+  margin: auto;
+  color: white;
+}
+
+#filter-container {
+  width: 40%;
+}
+
+#filter-form-field {
+  width: 100%;
+}
+
+#filter-input {
+  width: 100%;
+}

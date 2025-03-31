@@ -1,0 +1,28 @@
+<div id="edit-message-dialog">
+  <div id="edit-message-header-container">
+    <h3>Edit message</h3>
+    <button
+      mat-icon-button
+      aria-label="close dialog"
+      [mat-dialog-close]="data.message"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-divider></mat-divider>
+  <div id="edit-message-form-container">
+    <form
+      id="edit-message-form"
+      [formGroup]="editMessageForm"
+      (submit)="editMessage()"
+    >
+      <input formControlName="id" hidden />
+      <textarea
+        id="edit-textarea"
+        formControlName="message"
+        [value]="data.message"
+      ></textarea>
+      <button mat-raised-button color="primary" type="submit">Edit</button>
+    </form>
+  </div>
+</div>
